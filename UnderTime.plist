@@ -1,5 +1,5 @@
 {
 	Filter = {
-		Classes  = ( "_UIStatusBarStringView", "_UIStatusBarTimeItem", "_UIStatusBarNavigationItem" );
+		Classes  = ( "_UIStatusBarStringView");
 	};
 }

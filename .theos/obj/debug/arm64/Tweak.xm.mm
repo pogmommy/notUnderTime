@@ -2,7 +2,6 @@
 #import "important.h"
 #import <spawn.h>
 
-
 @interface _UIStatusBarStringView : UIView
 @property (copy) NSString *text;
 @end
@@ -31,12 +30,15 @@
 @class _UIStatusBarStringView; 
 static void (*_logos_orig$_ungrouped$_UIStatusBarStringView$setText$)(_LOGOS_SELF_TYPE_NORMAL _UIStatusBarStringView* _LOGOS_SELF_CONST, SEL, NSString *); static void _logos_method$_ungrouped$_UIStatusBarStringView$setText$(_LOGOS_SELF_TYPE_NORMAL _UIStatusBarStringView* _LOGOS_SELF_CONST, SEL, NSString *); 
 
-#line 9 "Tweak.xm"
+#line 8 "Tweak.xm"
 
+
+NSString *stringTest = @"%";
 
 static void _logos_method$_ungrouped$_UIStatusBarStringView$setText$(_LOGOS_SELF_TYPE_NORMAL _UIStatusBarStringView* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, NSString * text) {
-	if(GetPrefBool(@"Enable") && ![text containsString:@":"]) {
+	if(GetPrefBool(@"Enable") && ![text containsString:@":"] && ![text containsString:@"‎◀︎"] && ![text containsString:stringTest] && ![text isEqual:@""] && ![text isEqual:@"LTE"] && ![text isEqual:@"4G"] && ![text isEqual:@"3G"]) {
 		NSString *lineOne = GetPrefString(@"lineOne");
+		NSLog(@"UnderTime '%@'", text);
 		_logos_orig$_ungrouped$_UIStatusBarStringView$setText$(self, _cmd, lineOne);
 	}
 	else {
@@ -46,4 +48,4 @@ static void _logos_method$_ungrouped$_UIStatusBarStringView$setText$(_LOGOS_SELF
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$_UIStatusBarStringView = objc_getClass("_UIStatusBarStringView"); MSHookMessageEx(_logos_class$_ungrouped$_UIStatusBarStringView, @selector(setText:), (IMP)&_logos_method$_ungrouped$_UIStatusBarStringView$setText$, (IMP*)&_logos_orig$_ungrouped$_UIStatusBarStringView$setText$);} }
-#line 21 "Tweak.xm"
+#line 23 "Tweak.xm"

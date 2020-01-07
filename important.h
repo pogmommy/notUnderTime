@@ -1,4 +1,4 @@
-#define PLIST_PATH @"/var/mobile/Library/Preferences/com.mpg13.UnderTime.plist"
+#define PLIST_PATH @"/var/mobile/Library/Preferences/com.mpg13.NotUnderTime.plist"
 
 
 inline bool GetPrefBool(NSString *key)
